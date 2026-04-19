@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta id="viewport-meta" name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lukas Lipka | Drummer</title>
   <link rel="icon" type="image/jpeg" href="images/favicon.jpg" />
   <style>
@@ -570,6 +570,23 @@
     </div>
   </div>
     <script>
+    (function () {
+      const viewportMeta = document.getElementById('viewport-meta');
+      if (!viewportMeta) return;
+
+      function updateViewport() {
+        if (window.innerWidth <= 980) {
+          viewportMeta.setAttribute('content', 'width=1180, initial-scale=1.0');
+        } else {
+          viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+      }
+
+      updateViewport();
+      window.addEventListener('resize', updateViewport);
+    })();
+
+
     const players = document.querySelectorAll('.audio-player');
 
     function formatTime(seconds) {
