@@ -391,9 +391,16 @@
     }
 
     @media (max-width: 980px) {
-      .stats-grid {
-        grid-template-columns: 1fr;
+      body {
+        min-width: 1180px;
+        overflow-x: auto;
       }
+
+      .page {
+        width: 1180px;
+      }
+    }
+    }
 
       .profile-top,
       .content {
