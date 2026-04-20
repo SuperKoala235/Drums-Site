@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta id="viewport-meta" name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta id="viewport-meta" name="viewport" content="width=1180, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover" />
   <title>Lukas Lipka | Drummer</title>
   <link rel="icon" type="image/jpeg" href="images/favicon.jpg" />
   <style>
@@ -94,8 +94,6 @@
       margin: 0 0 16px;
     }
 
-    
-
     .meta-lines {
       display: grid;
       gap: 8px;
@@ -107,21 +105,6 @@
     .meta-line strong {
       color: var(--text);
       font-weight: 700;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .tag {
-      font-size: 0.9rem;
-      padding: 6px 10px;
-      border: 1px solid var(--line);
-      background: var(--chip);
-      color: #d8e0ea;
     }
 
     .action-row {
@@ -399,22 +382,9 @@
       .page {
         width: 1180px;
       }
-    }
-    }
 
-      .profile-top,
-      .content {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .profile-photo {
-        width: 220px;
-        height: 220px;
+      .shell {
+        width: 1180px;
       }
     }
   </style>
@@ -457,8 +427,6 @@
         </aside>
 
         <main class="main">
-          
-
           <section class="main-section">
             <h2 class="section-title">About</h2>
             <p class="text">Accomplished drummer, 18 years old. Taken lessons since age 9. Won Reflections state competition for drumming performance. Have knowledge of a variety of genres across multiple instruments: extreme metal, jazz, rock, and country. Took classical violin lessons starting at age 7, currently taking drum and guitar lessons. Transcribe, play, and compose music. Played with the orchestra at Lamar Stringfield Music School at Meredith College for violin and Philharmonic Association Triangle Youth Jazz Lab at NC State for drums. Played lead guitar for school musicals. Played numerous recitals and shows, including at the Cary School of Music. Can proficiently play most extreme metal songs. Proficient in Reaper and other DAWs, and record music.</p>
@@ -569,23 +537,32 @@
       </footer>
     </div>
   </div>
-    <script>
+
+  <script>
     (function () {
       const viewportMeta = document.getElementById('viewport-meta');
       if (!viewportMeta) return;
 
+      const DESKTOP_WIDTH = 1180;
+
       function updateViewport() {
         if (window.innerWidth <= 980) {
-          viewportMeta.setAttribute('content', 'width=1180, initial-scale=1.0');
+          const scale = window.screen.width / DESKTOP_WIDTH;
+          viewportMeta.setAttribute(
+            'content',
+            `width=${DESKTOP_WIDTH}, initial-scale=${scale}, maximum-scale=5, user-scalable=yes, viewport-fit=cover`
+          );
         } else {
-          viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+          viewportMeta.setAttribute(
+            'content',
+            'width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover'
+          );
         }
       }
 
       updateViewport();
       window.addEventListener('resize', updateViewport);
     })();
-
 
     const players = document.querySelectorAll('.audio-player');
 
